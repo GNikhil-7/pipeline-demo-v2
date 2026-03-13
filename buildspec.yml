@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - npm ci
+
+  build:
+    commands:
+      - npm test
+      - npm audit --audit-level=high
+
+artifacts:
+  files:
+    - '**/*'
+  exclude-paths:
+    - node_modules/**
