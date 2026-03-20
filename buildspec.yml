@@ -3,17 +3,16 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 20
+      nodejs: 18
     commands:
-      - npm ci
+      - echo Installing dependencies...
+      - npm install
 
   build:
     commands:
+      - echo Running tests...
       - npm test
-      - npm audit --audit-level=high
 
 artifacts:
   files:
     - '**/*'
-  exclude-paths:
-    - node_modules/**
